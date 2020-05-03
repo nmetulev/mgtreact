@@ -42,14 +42,16 @@ class App extends React.Component {
 
 function MyEvent(props) {
 
+  const {event} = props.dataContext;
+
   let clickHandler = (e) => {
-    console.log('clicked ', props.event.subject);
+    console.log('clicked ', event.subject);
   }
 
   return <div>
-    {props.event.subject}
+    {event.subject}
       <div>
-        {props.event.attendees.map(attendee => 
+        {event.attendees.map(attendee => 
           <Person key={attendee.emailAddress.address} personQuery={attendee.emailAddress.address} />)}
       </div>
       <button onClick={clickHandler}>A button I can click</button>
